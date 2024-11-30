@@ -1,0 +1,147 @@
+/* Header */
+header {
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  position: relative;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.02);
+  /* background-color: rgb(155, 152, 152); */
+}
+.menu{
+  display:none;
+}
+
+header .logo h1 a img{
+  margin-left: 20px;
+  height: 70px;
+  width: 100px;
+}
+
+header .logo h1 a{
+  color: #333;
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: transform 0.3s ease;
+}
+header .logo h1 a:hover{
+  transform: scale(1.1);
+  color: #ff69b4
+}
+
+header .logo h1:hover {
+  transform: scale(1.1);
+}
+
+header a {
+  position: relative;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  transition: color 0.3s ease;
+}
+header ul li a::before{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+header a:hover {
+  color: #ff69b4;
+}
+
+header ul {
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+
+header ul li {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding: 10px 15px;
+}
+
+header ul li:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.cart-icon {
+  padding: 3px;
+  position: relative;
+  margin-right: 30px;
+}
+
+.cart-icon span {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  background-color: hsl(0, 100%, 50%);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 50%;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  header ul {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background-color: hsl(0, 0%, 25%);
+    width: 80%;
+    height: calc(100vh - 200px);
+    padding: 35px;
+    /* margin: 5px; */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    flex-direction: column;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  header .logo h1 a{
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease;
+  }
+  header a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #dadada;
+  text-transform: uppercase;
+  /* font-weight: 600; */
+  /* padding: 15px; */
+  letter-spacing: 0.2rem;
+  transition: color 0.3s ease;
+  }
+  header ul.show {
+    display: flex;
+  }
+
+  header ul li {
+    padding: 10px 0;
+  }
+
+  .cart-icon {
+    margin-right: 5px;
+  }
+}

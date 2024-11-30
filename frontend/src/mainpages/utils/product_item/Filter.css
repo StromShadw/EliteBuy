@@ -1,0 +1,103 @@
+.filter_menu {
+  min-height: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.filter_menu .row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.filter_menu span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.filter_menu select,
+.filter_menu input {
+  height: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter_menu select:focus,
+.filter_menu input:focus {
+  border-color: #ff69b4;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+}
+
+.filter_menu input {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.filter_menu input::placeholder {
+  color: #aaa;
+}
+
+.filter_menu select {
+  min-width: 150px;
+}
+
+.filter_menu select:hover,
+.filter_menu input:hover {
+  border-color: #ff69b4;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.4); /* Hover effect for inputs */
+}
+
+.load_more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.load_more button {
+  padding: 14px 35px;
+  border: 1px solid #ff69b4;
+  color: #fff;
+  background-color: #ff69b4;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.load_more button:hover {
+  background-color: #ff4181;
+  transform: scale(1.05);
+}
+
+.load_more button:focus {
+  outline: none;
+  background-color: #ff69b4;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+}
+
+@media (max-width: 768px) {
+  .filter_menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filter_menu input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .filter_menu select {
+    width: 100%;
+  }
+}

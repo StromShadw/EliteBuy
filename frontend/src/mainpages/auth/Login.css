@@ -1,0 +1,107 @@
+/* Container for both login and register pages */
+.login-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 90%;
+    border-radius: 8px;
+    padding: 40px;
+    gap: 20px;
+    background: linear-gradient(145deg, #f0f8ff, #e0f7fa);
+    box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Style */
+.login-page h2 {
+    border-left: 15px solid #1dd1a1;
+    line-height: 1.2em;
+    padding-right: 230px;
+    transition: 0.5s;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+/* Input and Button Styles */
+.login-page form input {
+    width: 100%;
+    height: 45px;
+    margin: 10px 0;
+    padding: 10px;
+    outline: none;
+    border: 1.5px solid #555;
+    font-size: 1em;
+    color: #333;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Button Container Style */
+.login-page form .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Button Style */
+.login-page form .button button {
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background: #1dd1a1;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.login-page form .button button:hover {
+    background-color: #10ac84;
+}
+
+/* Link Style */
+.login-page form a {
+    color: #333;
+    text-decoration: underline;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-left: 4px;
+}
+.login-page form h1{
+    font-size: small;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+    .login-page {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .login-page h2 {
+        font-size: 18px;
+    }
+
+    .login-page form input {
+        height: 40px;
+        font-size: 0.9em;
+    }
+
+    .login-page form .button button {
+        height: 40px;
+        font-size: 0.9em;
+    }
+}

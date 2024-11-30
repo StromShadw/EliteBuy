@@ -1,0 +1,19 @@
+.products.user{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
+    margin: 10px 0;
+}
+
+
+.products.admin {
+    width: 100%;
+    display: block;
+    justify-items:center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.products.admin .product-item {
+    margin-bottom: 20px;
+}
