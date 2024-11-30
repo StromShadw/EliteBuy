@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { GlobalState } from "../../../GlobalState";
 import { Link } from "react-router-dom";
-import "./ProductItem.css";
+import "./Productitem.css";
 import axios from "axios";
 import Loading from "../Loading/Loading";
 
