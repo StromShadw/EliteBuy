@@ -7,11 +7,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://elitebuy.onrender.com',
+        target: 'https://elitebuy-1.onrender.com',
         changeOrigin: true,
       },
       '/user': {
-        target: 'https://elitebuy.onrender.com',
+        target: 'https://elitebuy-1.onrender.com',
         changeOrigin: true,
       },
     },
