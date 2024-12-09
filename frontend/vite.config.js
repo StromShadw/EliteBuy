@@ -7,11 +7,11 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: process.env.VITE_API_URL || "https://elitebuy.onrender.com",
+        target: process.env.VITE_API_URL || "https://elitebuy-1.onrender.com",
         changeOrigin: true,
       },
       "/user": {
-        target: process.env.VITE_API_URL || "https://elitebuy.onrender.com",
+        target: process.env.VITE_API_URL || "https://elitebuy-1.onrender.com",
         changeOrigin: true,
       },
     },
