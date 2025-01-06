@@ -43,10 +43,21 @@
 }
 
 .box-detail .cart{
-    color: rgb(0, 0, 0);
+    color: white;
+    background-color: rgb(0, 0, 0);
     margin-top: 10px;
     padding: 10px 25px;
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.box-detail .cart:hover {
+    background-color: rgb(50, 50, 50);
+}
+
+.products{
+    display: inline-block;
+    
 }

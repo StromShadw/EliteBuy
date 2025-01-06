@@ -1,53 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function UserAPI(token) {
-    const [isLogged, setIsLogged] = useState(false)
-    const [isAdmin, setIsAdmin]= useState(false)
-    const [cart, setCart] = useState([])
-    useEffect(()=>{
-        if(token){
-            const getUser = async() =>{
+const UserAPI = (token) => {
+    const [isLogged, setIsLogged] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [cart, setCart] = useState([]);
+
+    const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5173";
+
+    useEffect(() => {
+        if (token) {
+            const getUser = async () => {
                 try {
-                    const res = await axios.get('/user/infor',{
-                        headers: {Authorization: token}
-                    })
-                    setIsLogged(true)
-                    res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
-                    setCart(res.data.cart)
+                    const res = await axios.get(`${BASE_URL}/user/infor`, {
+                        headers: { Authorization: token },
+                    });
+
+                    setIsLogged(true);
+                    setIsAdmin(res.data.role === "admin");
+                    setCart(res.data.cart || []);
                 } catch (err) {
-                    alert(err.response.data.msg)
+                    console.error("Failed to fetch user information:", err);
                 }
-            }
-            getUser()
+            };
+            getUser();
         }
-    },[token])
+    }, [token]);
 
-    const addCart = async (product) =>{
-        if(!isLogged) return alert('Please Login to continue buying')
-
-        const check = cart.every(item=>{
-            return item._id !== product._id
-        })
-
-        if(check) {
-            setCart([...cart, {...product, quantity: 1}])
-
-            await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
-                headers: {Authorization : token}
-            })
-        } else {
-            alert('this product has been added to the Cart')
-        }
-    }
     return {
-        isLogged :[isLogged, setIsLogged],
-        isAdmin:[isAdmin, setIsAdmin],
-        addCart:addCart,
-        cart:[cart,setCart]
-    }
-        
-    
-}
+        isLogged: [isLogged, setIsLogged],
+        isAdmin: [isAdmin, setIsAdmin],
+        cart: [cart, setCart],
+    };
+};
 
-export default UserAPI
+export default UserAPI;

@@ -29,19 +29,19 @@ app.use('/api', require('./routers/upload.js'))
 
 
 //connect MongoDB
-const URL = process.env.MONGODB_URL;
+// const URL = process.env.MONGODB_URL;
 
-const connectToDB = async () => {
-    try {
-        await mongoose.connect(URL);
-        console.log('Connected to DB');
-    } catch (err) {
-        console.error('Database connection error:', err);
-        process.exit(1);
-    }
-};
+// const connectToDB = async () => {
+//     try {
+//         await mongoose.connect(URL);
+//         console.log('Connected to DB');
+//     } catch (err) {
+//         console.error('Database connection error:', err);
+//         process.exit(1);
+//     }
+// };
 // Call the function to connect to the database
-connectToDB();
+// connectToDB();
 
 
 app.get('/',(req,res)=>{

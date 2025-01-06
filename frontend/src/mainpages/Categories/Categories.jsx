@@ -12,12 +12,14 @@ function Categories() {
   const [onEdit, setOnEdit] = useState(false);
   const [id, setID] = useState("");
 
+  const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5173";
+
   const createCategory = async (e) => {
     e.preventDefault();
     try {
       if (onEdit) {
         const res = await axios.put(
-          `/api/category/${id}`,
+          `${BASE_URL}/api/category/${id}`,
           { name: category },
           {
             headers: { Authorization: token },
@@ -27,7 +29,7 @@ function Categories() {
         alert(res.data.msg);
       } else {
         const res = await axios.post(
-          "/api/category",
+          `${BASE_URL}/api/category`,
           { name: category },
           {
             headers: { Authorization: token },
@@ -49,7 +51,7 @@ function Categories() {
   };
   const deleteCategory = async (id) => {
     try {
-      const res = await axios.delete(`/api/category/${id}`, {
+      const res = await axios.delete(`${BASE_URL}/api/category/${id}`, {
         headers: { Authorization: token },
       });
       alert(res.data.msg);

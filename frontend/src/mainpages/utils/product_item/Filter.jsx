@@ -13,27 +13,31 @@ function Filters() {
   const [page, setPage] = state.productsAPI.page;
   const [result, setResult] = state.productsAPI.result;
 
+  const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5173";
+
   // Fetch products whenever category, sort, or search changes
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        let url = `/api/products?limit=${page * 9}`;
-  
+        let url = `${BASE_URL}/api/products?limit=${page * 9}`;
+
         if (category) url += `&${category}`;
         if (sort) url += `&sort=${sort}`;
-        if (search) url += `&search=${search}`;
+        if (search) url += `&title[regex]=${search}`;
         const response = await axios.get(url);
-  
+
         setProducts(response.data.products);
         setResult(response.data.result || 0); // Handle result count if provided
       } catch (error) {
-        console.error("Error fetching products:", error.response?.data || error.message);
+        console.error(
+          "Error fetching products:",
+          error.response?.data || error.message
+        );
       }
     };
-  
+
     fetchProducts();
   }, [category, sort, search, page]);
-  
 
   // Handle category selection change
   const handleCategory = (e) => {

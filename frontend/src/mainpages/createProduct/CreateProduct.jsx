@@ -30,6 +30,8 @@ function CreateProduct() {
 
   const [callback, setCallback] = state.productsAPI.callback;
 
+  const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5173";
+
   useEffect(() => {
     if (param.id) {
       setOnEdit(true);
@@ -67,7 +69,7 @@ function CreateProduct() {
       formData.append("file", file);
 
       setLoading(true);
-      const res = await axios.post("/api/upload", formData, {
+      const res = await axios.post(`${BASE_URL}/api/upload`, formData, {
         headers: {
           "content-type": "multipart/form-data",
           Authorization: token,
@@ -85,7 +87,7 @@ function CreateProduct() {
       if (!isAdmin) return alert("you are not an admin");
       setLoading(true);
       await axios.post(
-        "/api/destroy",
+        `${BASE_URL}/api/destroy`,
         { public_id: images.public_id },
         {
           headers: { Authorization: token },
@@ -106,7 +108,7 @@ function CreateProduct() {
 
       if (onEdit) {
         await axios.put(
-          `/api/products/${product._id}`,
+          `${BASE_URL}/api/products/${product._id}`,
           { ...product, images },
           {
             headers: { Authorization: token },
@@ -114,7 +116,7 @@ function CreateProduct() {
         );
       } else {
         await axios.post(
-          "/api/products",
+          `${BASE_URL}/api/products`,
           { ...product, images },
           {
             headers: { Authorization: token },

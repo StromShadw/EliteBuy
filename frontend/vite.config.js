@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -7,12 +6,14 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: process.env.VITE_API_URL || "https://elitebuy-1.onrender.com",
+        target: import.meta.env.VITE_API_URL || "https://elitebuy-1.onrender.com",
         changeOrigin: true,
+        secure: false,
       },
       "/user": {
-        target: process.env.VITE_API_URL || "https://elitebuy-1.onrender.com",
+        target: import.meta.env.VITE_API_URL || "https://elitebuy-1.onrender.com",
         changeOrigin: true,
+        secure: false,
       },
     },
   },

@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function CategoriesAPI(token) {
     const [categories, setCategories] = useState([]);
     const [callback, setCallback] = useState(false);
 
+    const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5173";
+
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('/api/category', {
+                const response = await axios.get(`${BASE_URL}/api/category`, {
                     headers: { Authorization: token }
                 });
                 if (response.data && Array.isArray(response.data)) {

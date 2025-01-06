@@ -17,17 +17,19 @@ function Products() {
     const [token] = state.token;
     const [loading, setLoading] = useState(false);
 
+    const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5173";
+
     const deleteProduct = async (id, public_id) => {
         try {
             setLoading(true);
             const destroyImg = axios.post(
-                `/api/destroy`,
+                `${BASE_URL}/api/destroy`,
                 { public_id: public_id },
                 {
                     headers: { Authorization: token },
                 }
             );
-            const deleteProdukt = axios.delete(`/api/products/${id}`, {
+            const deleteProdukt = axios.delete(`${BASE_URL}/api/products/${id}`, {
                 headers: { Authorization: token },
             });
             await destroyImg;

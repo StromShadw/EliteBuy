@@ -62,7 +62,7 @@ const userCtrl = {
                 path: '/user/refresh_token',
             });
 
-            return res.json({mes:"Login Success!", accesstoken });
+            return res.json({mes:"Login Success!", accesstoken,refreshtoken });
         } catch (error) {
             return res.status(500).json({ mes: error.message });
         }

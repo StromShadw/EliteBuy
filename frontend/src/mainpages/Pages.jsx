@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Routes, Route } from "react-router-dom"
 import Products from "./products/Products"
 import Login from "./auth/Login"
